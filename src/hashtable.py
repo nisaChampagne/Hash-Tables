@@ -70,7 +70,11 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        hash_index = self._hash_mod(key)
+        if hash_index in self.storage:
+            self.storage.remove(hash_index)
+        else: 
+            print("Key not found")
 
 
     def retrieve(self, key):
