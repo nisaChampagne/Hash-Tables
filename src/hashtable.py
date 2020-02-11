@@ -102,11 +102,11 @@ class HashTable:
         Fill this in.
         '''
         self.capacity *= 2
-        for key in self.storage:
-            self._hash_mod(key)
-
-
-
+        new_storage = [None] * self.capacity
+        for key in range(len(self.storage)):
+            if self.storage[key]:
+                new_storage[key] = self.storage[key]
+        self.storage = new_storage
 
 
 if __name__ == "__main__":
