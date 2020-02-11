@@ -5,7 +5,7 @@ class LinkedPair:
     def __init__(self, key, value):
         self.key = key
         self.value = value
-        self.next = None
+        self.pointer = None # changed to pointer for preference
 
 class HashTable:
     '''
@@ -23,16 +23,16 @@ class HashTable:
 
         You may replace the Python hash with DJB2 as a stretch goal.
         '''
-        return hash(key)
+        return hash(key) # hashes whatever out key is
 
 
-    def _hash_djb2(self, key):
-        '''
-        Hash an arbitrary key using DJB2 hash
+    # def _hash_djb2(self, key):
+    #     '''
+    #     Hash an arbitrary key using DJB2 hash
 
-        OPTIONAL STRETCH: Research and implement DJB2
-        '''
-        pass
+    #     OPTIONAL STRETCH: Research and implement DJB2
+    #     '''
+    #     pass
 
 
     def _hash_mod(self, key):
@@ -40,7 +40,7 @@ class HashTable:
         Take an arbitrary key and return a valid integer index
         within the storage capacity of the hash table.
         '''
-        return self._hash(key) % self.capacity
+        return self._hash(key) % self.capacity  # getting valid integer  by dividing the hashed key by capacity
 
 
     def insert(self, key, value):
