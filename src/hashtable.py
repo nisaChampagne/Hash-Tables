@@ -19,7 +19,7 @@ class HashTable:
         self.storage = [None] * capacity
 
 
-    def _hash(self, key):  # :sunny:
+    def _hash(self, key): # private method, shouldnt use outside of class
         '''
         Hash an arbitrary key and return an integer.
 
@@ -37,12 +37,20 @@ class HashTable:
     #     pass
 
 
-    def _hash_mod(self, key): # :sunny:
+    def _hash_mod(self, key): # private method, shouldnt use outside of class
         '''
         Take an arbitrary key and return a valid integer index
         within the storage capacity of the hash table.
         '''
-        return self._hash(key) % self.capacity  # getting valid integer  by dividing the hashed key by capacity
+        return self._hash(key) % self.capacity  # generates index for us
+
+        '''
+        we use this because its easier to maintain/ change this way
+
+        if we use the built in hash() we would have to change every line its used in so
+        its better to have it in one place and change just that place if its needed
+
+        '''
 
 
     def insert(self, key, value):
