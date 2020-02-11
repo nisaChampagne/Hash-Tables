@@ -83,6 +83,7 @@ class HashTable:
 
         # traverse the linked list in storage at generated hash_index
         current = self.storage[hash_index]
+        
         # if no list exists, new node becomes the head
         if current is None:
             self.storage[hash_index] = new_node
