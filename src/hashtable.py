@@ -101,7 +101,11 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        self.capacity *= 2
+        for key in self.storage:
+            self._hash_mod(key)
+
+
 
 
 
