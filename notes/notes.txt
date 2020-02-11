@@ -1,0 +1,76 @@
+def _hashblahblah is a signal to devs that this is a private method for the specific class
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Single Linked List:
+
+* Every node in a SLL contains an item and pointer to the next item.
+
+
+Creating a node class:
+
+* Contains the item and the pointer to the next node
+
+* The value of item will be set by the value passed through the constructor 
+
+** The pointer will initially set to null. 
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~`
+
+Hash Tables:
+
+Hash tables are the single most important data structure
+    * time complexity on average will be O(1)
+        ** for inserting, deleting and accessing key:value pairs
+
+Hash Tables exist in more places than you'd think
+
+* dictionaries in python are examples of hash tables as data is stored in key:value pairs.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+
+What are Hash Tables?
+
+* key/value data storage and retrieval
+
+* data stored in a contiguous block of memory as an array
+
+  ** each element of an array is stored next to each other in memory
+
+    ** if you want to get to the fifth element
+      ** 5 * sizeof(data)
+
+* The key is converted to an integer via a hash function
+
+* The hashed key is converted to an array index via modulo function to make sure its within range of array
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+
+Hashes:
+    * hash() take sone parameter - an object whose hash value is to be returned (int, string, float)
+    * hash(object) will return the hashed  value of the object
+    
+    **example:
+        # hash for string
+        print('Hash for Python is:', hash('Python'))
+
+    * you can use hash() for a new instance of a class :
+    ** example:
+        class Person:
+            def __init__(self, age, name):
+                self.age = age
+                self.name = name
+
+            def __eq__(self, other):
+                return self.age == other.age and self.name == other.name
+
+            def __hash__(self):
+                print('The hash is:')
+                return hash((self.age, self.name))
+
+        person = Person(23, 'Adam')
+        print(hash(person))
+
+
+
