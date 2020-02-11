@@ -74,7 +74,7 @@ class HashTable:
         if hash_index in self.storage:
             self.storage.remove(hash_index)
         else: 
-            print("Key not found")
+            print(f"{key} not found")
 
 
     def retrieve(self, key):
@@ -85,7 +85,13 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        hash_index = self._hash_mod(key)
+        if hash_index in self.storage:
+            print(f"key: {key}, value: {self.storage[hash_index]} GOT IT!")
+        else:
+            print(f"{key} was not found!")
+            return None
+
 
 
     def resize(self):
