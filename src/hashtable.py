@@ -1,6 +1,8 @@
 # '''
 # Linked List hash table key/value pair
 # '''
+
+# SLL  value --pointer-> value --pointer->
 class LinkedPair:
     def __init__(self, key, value):
         self.key = key
@@ -17,7 +19,7 @@ class HashTable:
         self.storage = [None] * capacity
 
 
-    def _hash(self, key):
+    def _hash(self, key):  # :sunny:
         '''
         Hash an arbitrary key and return an integer.
 
@@ -35,7 +37,7 @@ class HashTable:
     #     pass
 
 
-    def _hash_mod(self, key):
+    def _hash_mod(self, key): # :sunny:
         '''
         Take an arbitrary key and return a valid integer index
         within the storage capacity of the hash table.
@@ -51,11 +53,11 @@ class HashTable:
 
         Fill this in.
         '''
-        print('Key to insert: ', key)
-        print('Value to insert: ', value)
+        print('Key to insert: ', key)  # returns keys in terminal yay!
+        print('Value to insert: ', value) # returns values in terminal yay!
 
         hash_index = self._hash_mod(key)
-        print('index: ', hash_index)
+        print('index: ', hash_index) # current index
 
         if key not in self.storage:
             self.storage.append(hash_index)
