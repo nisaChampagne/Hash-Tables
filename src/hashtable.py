@@ -71,8 +71,8 @@ class HashTable:
         Fill this in.
         '''
         hash_index = self._hash_mod(key)
-        if hash_index in self.storage:
-            self.storage.remove(hash_index)
+        if self.storage[hash_index].key:
+            self.storage[hash_index] = None
         else: 
             print(f"{key} not found")
 
@@ -86,8 +86,9 @@ class HashTable:
         Fill this in.
         '''
         hash_index = self._hash_mod(key)
-        if hash_index in self.storage:
+        if self.storage[hash_index] is not None:
             print(f"key: {key}, value: {self.storage[hash_index]} GOT IT!")
+            return self.storage[hash_index]
         else:
             print(f"{key} was not found!")
             return None
@@ -102,11 +103,8 @@ class HashTable:
         Fill this in.
         '''
         self.capacity *= 2
-        new_storage = [None] * self.capacity
-        for key in range(len(self.storage)):
-            if self.storage[key]:
-                new_storage[key] = self.storage[key]
-        self.storage = new_storage
+        for key in self.storage:
+            self._hash(key)
 
 
 if __name__ == "__main__":
