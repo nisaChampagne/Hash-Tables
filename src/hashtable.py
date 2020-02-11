@@ -51,8 +51,15 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        print('Key to insert: ', key)
+        print('Value to insert: ', value)
 
+        hash_index = self._hash_mod(key)
+        print('index: ', hash_index)
+
+        if key not in self.storage:
+            self.storage.append(hash_index)
+            self.storage[hash_index] = value
 
 
     def remove(self, key):
